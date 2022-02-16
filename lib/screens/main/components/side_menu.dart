@@ -9,11 +9,16 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Theme.of(context).platform;
+
     return Drawer(
       child: SingleChildScrollView(
         child: Column(
           children: [
-            WindowTitleBarBox(child: MoveWindow()),
+            if (provider == TargetPlatform.windows ||
+                provider == TargetPlatform.macOS ||
+                provider == TargetPlatform.linux)
+              WindowTitleBarBox(child: MoveWindow()),
             DrawerHeader(
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 30),

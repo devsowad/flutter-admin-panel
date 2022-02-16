@@ -12,14 +12,22 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Theme.of(context).platform;
+
     return SafeArea(
       child: Column(
         children: [
-          WindowTitleBarBox(
-            child: Row(
-              children: [Expanded(child: MoveWindow()), const WindowButtons()],
+          if (provider == TargetPlatform.windows ||
+              provider == TargetPlatform.macOS ||
+              provider == TargetPlatform.linux)
+            WindowTitleBarBox(
+              child: Row(
+                children: [
+                  Expanded(child: MoveWindow()),
+                  const WindowButtons()
+                ],
+              ),
             ),
-          ),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
