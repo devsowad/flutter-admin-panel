@@ -45,7 +45,7 @@ class MyFiles extends StatelessWidget {
           Responsive(
             mobile: FileInfoCardView(
               crossAxisCount: _size.width < 650 ? 2 : 4,
-              childAspectRatio: _size.width < 650 ? 1.3 : 1,
+              childAspectRatio: _size.width < 650 ? 1.2 : 1,
             ),
             tablet: const FileInfoCardView(),
             desktop: FileInfoCardView(
