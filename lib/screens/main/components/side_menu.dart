@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,8 +13,12 @@ class SideMenu extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            WindowTitleBarBox(child: MoveWindow()),
             DrawerHeader(
-              child: Image.asset('assets/images/logo.png'),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: Image.asset('assets/images/logo.png'),
+              ),
             ),
             DrawerListTile(
               svgSrc: 'assets/icons/menu_dashboard.svg',

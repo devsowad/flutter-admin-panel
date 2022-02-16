@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:dashboard/constants.dart';
 import 'package:dashboard/controllers/menu_controller.dart';
 import 'package:dashboard/screens/main/main_screen.dart';
@@ -7,6 +8,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
+  doWhenWindowReady(() {
+    const minSize = Size(500, 450);
+    appWindow.minSize = minSize;
+    appWindow.title = 'Admin Panel with Flutter';
+    appWindow.show();
+  });
 }
 
 class MyApp extends StatelessWidget {

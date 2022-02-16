@@ -1,5 +1,6 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:dashboard/components/window_buttons.dart';
 import 'package:dashboard/constants.dart';
-import 'package:dashboard/models/my_files.dart';
 import 'package:dashboard/responsive.dart';
 import 'package:dashboard/screens/dashboard/components/header.dart';
 import 'package:dashboard/screens/dashboard/components/my_files.dart';
@@ -12,22 +13,37 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(defaultPadding),
-        child: Column(children: [
-          const Header(),
-          const SizedBox(height: defaultPadding),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const MyFiles(),
-              if (!Responsive.isMobile(context))
-                const SizedBox(width: defaultPadding),
-              if (!Responsive.isMobile(context))
-                const Expanded(flex: 2, child: StorageDetails()),
-            ],
-          )
-        ]),
+      child: Column(
+        children: [
+          WindowTitleBarBox(
+            child: Row(
+              children: [Expanded(child: MoveWindow()), const WindowButtons()],
+            ),
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(defaultPadding),
+                child: Column(
+                  children: [
+                    const Header(),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const MyFiles(),
+                        if (!Responsive.isMobile(context))
+                          const SizedBox(width: defaultPadding),
+                        if (!Responsive.isMobile(context))
+                          const Expanded(flex: 2, child: StorageDetails()),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
