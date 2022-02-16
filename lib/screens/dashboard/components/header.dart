@@ -85,18 +85,14 @@ class SearchField extends StatelessWidget {
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        suffixIcon: InkWell(
-          onTap: () {},
+        suffixIcon: Material(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: Container(
-            padding: const EdgeInsets.all(defaultPadding * 0.75),
-            margin: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            decoration: const BoxDecoration(
-              color: primaryColor,
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
+            padding: const EdgeInsets.all(6),
+            child: IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {},
             ),
-            child: SvgPicture.asset('assets/icons/search.svg'),
           ),
         ),
       ),
